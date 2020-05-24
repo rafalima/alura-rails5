@@ -5,11 +5,20 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= nav_bar brand: "Loja", brand_link: root_path do %>
+      <%= menu_group do %>
+        <%= menu_item "Criar Novo Produto", produtos_new_path %>
+      <% end %>
+    <% end %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
